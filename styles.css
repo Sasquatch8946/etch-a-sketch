@@ -1,16 +1,19 @@
+.container {
+    height: 960px;
+    width: 960px;
+}
+
 .row {
     display: flex;
-    border: 2px solid black;
-    height: 100px;
-    width: 100%;
-    justify-content: space-around;
-    align-items: center;
+    border: 1px solid black;
+    align-items: stretch;
 }
 
 .child {
-    border: 2px solid firebrick;
+    border: 1px solid black;
+    flex: 1;
     height: 50px;
-    width: 50px;
+
 }
 
 .child:hover {
