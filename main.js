@@ -68,12 +68,14 @@ function createChildElement() {
     child.style.opacity = "0.1";
     child.style.backgroundColor = "white";
     child.addEventListener("mouseover", () => {
-        const rgb = generateRGB();
-        if (child.style.backgroundColor == "white") {
-            child.style.backgroundColor = rgb;
-        }
-        if (child.style.opacity != "1.0") {
+        if (child.style.opacity != "1") {
             child.style.opacity -= "-0.1";
+            const rgb = generateRGB();
+            child.style.backgroundColor = rgb;
+        } else if (child.style.opacity = "1") {
+            child.style.backgroundColor = "black";
+        } else {
+            console.log(child.style.opacity);
         }
     });
 
