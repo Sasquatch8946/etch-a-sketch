@@ -1,18 +1,24 @@
-const container = document.querySelector(".container");
+initializeGrid();
 
-for (let i = 0; i < 16; i++) {
-    const row = document.createElement("div");
-    row.classList.add("row");
+function initializeGrid() {
+
+    const container = document.querySelector(".container");
+
     for (let i = 0; i < 16; i++) {
-        const child = document.createElement("div");
-        child.classList.add("child");
-        row.appendChild(child);
+        const row = document.createElement("div");
+        row.classList.add("row");
+        for (let i = 0; i < 16; i++) {
+            const child = createChildElement();
+            row.appendChild(child);
+        }
+        container.appendChild(row);
     }
-    container.appendChild(row);
+
+    const btn = document.querySelector("#changegrid");
+    btn.addEventListener("click", setGrid);
 }
 
-const btn = document.querySelector("#changegrid");
-btn.addEventListener("click", setGrid);
+
 
 function setGrid() {
     const userSetting = parseInt(prompt("Please enter the number of squares (between 2 and 100) that you would like going down and across for your sketch pad."));
@@ -31,8 +37,7 @@ function createGrid(numSquares) {
         const row = document.createElement("div");
         row.classList.add("row");
         for (let i = 0; i < numSquares; i++) {
-            const child = document.createElement("div");
-            child.classList.add("child");
+            const child = createChildElement();
             row.appendChild(child);
         }
         container.appendChild(row);
@@ -44,4 +49,33 @@ function clearGrid() {
     while (container.firstChild) {
         container.removeChild(container.lastChild);
     }
+}
+
+function generateRGB() {
+    let threeColors = [];
+    for (let i = 0; i < 3; i++) {
+        let num = Math.floor(Math.random() * 255);
+        threeColors.push(num);
+    }
+
+    let rgb = "rgb" + `(${threeColors.join(" ")})`;
+    return rgb;
+}
+
+function createChildElement() {
+    const child = document.createElement("div");
+    child.classList.add("child");
+    child.style.opacity = "0.1";
+    child.style.backgroundColor = "white";
+    child.addEventListener("mouseover", () => {
+        const rgb = generateRGB();
+        if (child.style.backgroundColor == "white") {
+            child.style.backgroundColor = rgb;
+        }
+        if (child.style.opacity != "1.0") {
+            child.style.opacity -= "-0.1";
+        }
+    });
+
+    return child;
 }

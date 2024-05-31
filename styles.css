@@ -13,9 +13,9 @@
     border: 1px solid black;
     flex: 1;
     height: 50px;
-
 }
 
-.child:hover {
+
+/* .child:hover {
     background-color: darkcyan;
-}
+}*/
