@@ -33,6 +33,7 @@ function setGrid() {
 }
 
 function createGrid(numSquares) {
+    const container = document.querySelector(".container");
     for (let i = 0; i < numSquares; i++) {
         const row = document.createElement("div");
         row.classList.add("row");
