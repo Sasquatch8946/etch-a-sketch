@@ -1,16 +1,17 @@
 .container {
     height: 960px;
     width: 960px;
+    border: 1px solid black;
 }
 
 .row {
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     align-items: stretch;
 }
 
 .child {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     flex: 1;
     height: 50px;
 }
